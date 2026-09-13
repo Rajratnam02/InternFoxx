@@ -1,0 +1,56 @@
+.audience-toggle {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(37, 38, 170, 0.12);
+  backdrop-filter: blur(10px);
+  border: 1px solid white;
+  position: absolute;
+  top: 20%;
+  left: 5%;
+}
+
+.audience-toggle > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 28px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  color: #11145c;
+  cursor: pointer;
+  transition:
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.audience-toggle > div:hover:not(.active) {
+  background-color: rgba(48, 36, 255, 0.08);
+  color: #3024ff;
+  transform: translateY(-1px);
+}
+
+.audience-toggle > div:active {
+  transform: translateY(0);
+}
+
+.active {
+  color: white;
+  background: linear-gradient(135deg, #3024ff 0%, #174ee8 100%);
+  box-shadow: 0 4px 12px rgba(39, 49, 235, 0.35);
+  transition:
+    background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(39, 49, 235, 0.45);
+}
