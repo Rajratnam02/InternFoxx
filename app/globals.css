@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary */
+  --primary: #3024ff;
+  --primary-dark: #174ee8;
+
+  /* Text */
+  --text-primary: #11145c;
+  --text-dark: #080b3d;
+  --text-secondary: #5d6080;
+
+  /* Background */
+  --background: #f5f4ff;
+  --background-light: #fafaff;
+  --surface: #ffffff;
+
+  /* Lavender / Purple */
+  --lavender: #ebe8ff;
+  --lavender-light: #f0efff;
+  --purple: #7c5cff;
+  --purple-light: #a99cff;
+
+  /* Glass */
+  --white-glass: rgba(255, 255, 255, 0.9);
+  --primary-glass: rgba(48, 36, 255, 0.08);
+
+  /* Shadows */
+  --shadow-primary: rgba(39, 49, 235, 0.35);
+  --shadow-primary-hover: rgba(39, 49, 235, 0.45);
+
+  /* Borders */
+  --border-light: rgba(255, 255, 255, 0.8);
+  --border-purple: rgba(48, 36, 255, 0.15);
+
+  /* Legacy / Theme */
+  --foreground: var(--text-dark);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-dark: var(--text-dark);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-surface: var(--surface);
+  --color-lavender: var(--lavender);
+  --color-lavender-light: var(--lavender-light);
+  --color-purple: var(--purple);
+  --color-purple-light: var(--purple-light);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
+
   background: var(--background);
   color: var(--foreground);
+
   font-family: Arial, Helvetica, sans-serif;
 }
