@@ -1,0 +1,168 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 8px 16px;
+  margin-top: 35px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid white;
+  border-radius: 999px;
+
+  box-shadow: 0 4px 16px rgba(37, 38, 170, 0.12);
+  backdrop-filter: blur(10px);
+
+  color: #3024ff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 650px;
+  margin-top: 24px;
+
+  color: #11145c;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.title span {
+  color: #3024ff;
+}
+
+.description {
+  max-width: 600px;
+  margin-top: 24px;
+
+  color: #11145c;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-top: 32px;
+}
+
+.primary-btn,
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 24px;
+
+  border-radius: 999px;
+
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary-btn {
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-dark) 100%
+  );
+
+  color: white;
+
+  box-shadow: 0 4px 12px var(--shadow-primary);
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 16px var(--shadow-primary-hover);
+}
+
+.primary-btn:active {
+  transform: translateY(0);
+}
+
+.secondary-btn {
+  background-color: rgba(255, 255, 255, 0.65);
+
+  border: 1px solid rgba(48, 36, 255, 0.2);
+
+  color: var(--text-primary);
+
+  backdrop-filter: blur(10px);
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
+
+  background-color: rgba(255, 255, 255, 0.9);
+
+  border-color: rgba(48, 36, 255, 0.35);
+
+  box-shadow: 0 4px 12px rgba(37, 38, 170, 0.12);
+}
+
+.secondary-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .student-landing {
+    padding: 150px 5% 80px;
+
+    background-position: center;
+  }
+
+  .title {
+    max-width: 550px;
+    font-size: 48px;
+    letter-spacing: -1.5px;
+  }
+
+  .description {
+    max-width: 500px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .student-landing {
+    padding: 130px 20px 80px;
+
+    background-position: center;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 7px 13px;
+  }
+
+  .title {
+    font-size: 40px;
+    letter-spacing: -1px;
+  }
+
+  .description {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .primary-btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+}
