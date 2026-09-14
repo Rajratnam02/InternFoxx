@@ -1,19 +1,14 @@
 .organisation-landing {
   position: relative;
-
   min-height: 100vh;
   padding: 180px 5% 100px;
 
-  background-image:
+  background:
     linear-gradient(
       90deg,
       rgba(235, 232, 255, 0.72) 0%,
       rgba(235, 232, 255, 0.45) 35%,
       rgba(235, 232, 255, 0) 65%
     ),
-    url("/xyz.png");
-  
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    url("/xyz.png") center / cover no-repeat;
 }

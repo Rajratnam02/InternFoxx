@@ -8,7 +8,7 @@ const Login = () => {
   return (
     <main className="login">
       <div className="login-card">
-        {/* Logo */}
+        
         <div
           onClick={() => {
             router.push("/");
@@ -19,13 +19,13 @@ const Login = () => {
           <div className="login-title">InternFoxx</div>
         </div>
 
-        {/* Header */}
+        
         <div className="login-header">
           <h1>Welcome back</h1>
           <p>Log in to continue to your account.</p>
         </div>
 
-        {/* Email / Password */}
+        
         <form className="login-form">
           <div className="form-group">
             <label htmlFor="email">Email</label>
@@ -57,12 +57,12 @@ const Login = () => {
           </button>
         </form>
 
-        {/* Divider */}
+        
         <div className="divider">
           <span>or</span>
         </div>
 
-        {/* Google Login */}
+        
         <div className="social-login">
           <button type="button" className="social-btn">
             <span className="google-icon">G</span>
@@ -70,8 +70,8 @@ const Login = () => {
           </button>
         </div>
 
-        {/* Signup */}
-        <p className="signup">
+        
+        <p className="signup-btn">
           Don&apos;t have an account?
           <a href="/signup">Get Started</a>
         </p>
