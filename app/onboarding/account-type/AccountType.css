@@ -1,0 +1,368 @@
+/* ========================================
+   ACCOUNT TYPE PAGE
+   ======================================== */
+
+.account-type-page {
+  position: relative;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-8) var(--space-6);
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      rgba(240, 238, 255, 0.28),
+      rgba(240, 238, 255, 0.28)
+    ),
+    url("/onboardingbg.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+/* ========================================
+   OVERLAY
+   ======================================== */
+
+.account-type-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.18) 0%,
+      rgba(235, 232, 255, 0.08) 45%,
+      rgba(48, 36, 255, 0.08) 100%
+    );
+}
+
+
+/* ========================================
+   CONTENT
+   ======================================== */
+
+.account-type-content {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* ========================================
+   LOGO
+   ======================================== */
+
+.account-type-logo {
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-2);
+
+  color: var(--text-dark);
+
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+}
+
+.account-type-logo-icon {
+  width: var(--space-6);
+  height: var(--space-6);
+
+  border-radius: var(--radius-sm);
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--primary-dark)
+  );
+
+  box-shadow:
+    0 4px 12px var(--shadow-primary);
+}
+
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.account-type-header {
+  margin-top: var(--space-10);
+}
+
+.account-type-header h1 {
+  margin: 0;
+
+  color: var(--text-dark);
+
+  font-size: var(--font-3xl);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+
+  letter-spacing: -1px;
+}
+
+.account-type-header p {
+  margin: var(--space-3) 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-base);
+  line-height: var(--leading-normal);
+}
+
+
+/* ========================================
+   OPTIONS
+   ======================================== */
+
+.account-type-options {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: var(--space-6);
+
+  margin-top: var(--space-10);
+}
+
+
+/* ========================================
+   ACCOUNT TYPE CARD
+   ======================================== */
+
+.account-type-card {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  min-height: 280px;
+
+  padding: var(--space-8);
+
+  color: var(--text-primary);
+  background:
+    linear-gradient(
+      145deg,
+      var(--glass-strong),
+      var(--glass-light)
+    );
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-2xl);
+
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+
+  box-shadow:
+    var(--shadow-lg),
+    inset 0 1px 0 var(--glass-strong);
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.account-type-card:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--border-purple-hover);
+
+  box-shadow:
+    var(--shadow-lg),
+    0 12px 30px var(--shadow-primary);
+}
+
+.account-type-card:active {
+  transform: translateY(-2px);
+}
+
+.account-type-card:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+
+
+/* ========================================
+   CARD ICON
+   ======================================== */
+
+.account-type-card-icon {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: var(--space-5);
+
+  background: var(--primary-glass);
+
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius-xl);
+
+  font-size: 34px;
+}
+
+
+/* ========================================
+   CARD CONTENT
+   ======================================== */
+
+.account-type-card-content h2 {
+  margin: 0;
+
+  color: var(--text-dark);
+
+  font-size: var(--font-xl);
+  font-weight: var(--weight-bold);
+}
+
+.account-type-card-content p {
+  max-width: 320px;
+
+  margin: var(--space-3) auto 0;
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-sm);
+  line-height: var(--leading-relaxed);
+}
+
+
+/* ========================================
+   CARD ACTION
+   ======================================== */
+
+.account-type-card-action {
+  margin-top: auto;
+  padding-top: var(--space-6);
+
+  color: var(--primary);
+
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semibold);
+}
+
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.account-type-footer {
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-1);
+
+  margin-top: var(--space-8);
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-sm);
+}
+
+.account-type-footer button {
+  padding: 0;
+
+  color: var(--primary);
+  background: none;
+
+  border: none;
+
+  font: inherit;
+  font-weight: var(--weight-semibold);
+
+  cursor: pointer;
+}
+
+.account-type-footer button:hover {
+  text-decoration: underline;
+}
+
+
+/* ========================================
+   BACK
+   ======================================== */
+
+.account-type-back {
+  margin-top: var(--space-5);
+
+  padding: var(--space-2) var(--space-4);
+
+  color: var(--text-secondary);
+  background: transparent;
+
+  border: none;
+
+  font-size: var(--font-sm);
+  font-weight: var(--weight-medium);
+
+  cursor: pointer;
+
+  transition: color var(--transition-fast);
+}
+
+.account-type-back:hover {
+  color: var(--text-primary);
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .account-type-page {
+    padding: var(--space-8) var(--space-4);
+
+    background-attachment: scroll;
+  }
+
+  .account-type-header {
+    margin-top: var(--space-8);
+  }
+
+  .account-type-header h1 {
+    font-size: var(--font-2xl);
+  }
+
+  .account-type-options {
+    grid-template-columns: 1fr;
+
+    gap: var(--space-4);
+
+    margin-top: var(--space-8);
+  }
+
+  .account-type-card {
+    min-height: 240px;
+
+    padding: var(--space-6);
+  }
+}
