@@ -1,5 +1,9 @@
+"use client"
+import { useRouter } from "next/navigation";
 import "./StudentLanding.css";
+
 const StudentLanding = () => {
+  const router = useRouter();
   return (
     <div className="student-landing">
       <div className="landing-badge">30 days Internship System</div>
@@ -14,7 +18,7 @@ const StudentLanding = () => {
       <div className="landing-cta">
         <div className="primary-btn">Art of cold reachout &rarr;</div>
         {/* Add secondary button here (.secondary-btn) */}
-        <div className="secondary-btn">Explore the system &rarr;</div>
+        <div onClick={() => {router.push("/student")}} className="secondary-btn">Explore the system &rarr;</div>
       </div>
     </div>
   );

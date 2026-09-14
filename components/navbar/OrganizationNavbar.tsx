@@ -6,7 +6,7 @@ const OrganizationNavbar = () => {
 
   return (
     <nav className='navbar'>
-      <div className="logo">
+      <div onClick={() => {router.push("/")}} className="logo">
         <p>InternFoxx</p>
       </div>
 

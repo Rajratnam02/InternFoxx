@@ -1,0 +1,250 @@
+/* ========================================
+   FEATURE CARD
+   ======================================== */
+
+.feature-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 230px;
+
+  padding: var(--space-8);
+
+  color: var(--text-primary);
+  background:
+    linear-gradient(
+      145deg,
+      var(--glass-strong),
+      var(--glass-light)
+    );
+
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-2xl);
+
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 0 var(--glass-strong),
+    inset 0 -1px 0 var(--primary-glass);
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+
+/* ========================================
+   HOVER GLOW
+   ======================================== */
+
+.feature-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -80px;
+  right: -80px;
+
+  width: 180px;
+  height: 180px;
+
+  background: var(--background-glow-1);
+
+  border-radius: var(--radius-full);
+
+  filter: blur(45px);
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: opacity var(--transition-slow);
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+
+/* ========================================
+   HOVER
+   ======================================== */
+
+.feature-card:hover {
+  transform: translateY(-6px);
+
+  border-color: var(--border-purple-hover);
+
+  box-shadow:
+    var(--shadow-lg),
+    0 10px 30px var(--shadow-primary),
+    inset 0 1px 0 var(--glass-strong);
+}
+
+.feature-card:active {
+  transform: translateY(-2px);
+}
+
+
+/* ========================================
+   FOCUS
+   ======================================== */
+
+.feature-card:focus-visible {
+  outline: 2px solid var(--primary);
+
+  outline-offset: 4px;
+}
+
+
+/* ========================================
+   ICON
+   ======================================== */
+
+.feature-card__icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: var(--space-5);
+
+  color: var(--primary);
+
+  background: var(--primary-glass);
+
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius-lg);
+
+  font-size: var(--font-xl);
+
+  transition:
+    transform var(--transition-base),
+    background-color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.feature-card:hover .feature-card__icon {
+  transform: translateY(-2px);
+
+  background: var(--glass-strong);
+
+  border-color: var(--border-purple-hover);
+}
+
+
+/* ========================================
+   CONTENT
+   ======================================== */
+
+.feature-card__content {
+  flex: 1;
+}
+
+.feature-card__title {
+  margin: 0;
+
+  color: var(--text-dark);
+
+  font-size: var(--font-xl);
+  font-weight: var(--weight-bold);
+
+  line-height: var(--leading-snug);
+
+  letter-spacing: -0.4px;
+}
+
+.feature-card__description {
+  margin: var(--space-3) 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-sm);
+
+  line-height: var(--leading-relaxed);
+}
+
+
+/* ========================================
+   ACTION
+   ======================================== */
+
+.feature-card__action {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: var(--space-6);
+
+  color: var(--primary);
+
+  font-size: var(--font-sm);
+  font-weight: var(--weight-semibold);
+
+  transition:
+    transform var(--transition-base),
+    color var(--transition-fast);
+}
+
+.feature-card:hover .feature-card__action {
+  transform: translateX(4px);
+
+  color: var(--primary-dark);
+}
+
+
+/* ========================================
+   DISABLED
+   ======================================== */
+
+.feature-card--disabled {
+  cursor: not-allowed;
+
+  opacity: 0.6;
+
+  pointer-events: none;
+}
+
+.feature-card--disabled:hover {
+  transform: none;
+
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 0 var(--glass-strong);
+}
+
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 640px) {
+  .feature-card {
+    min-height: 210px;
+
+    padding: var(--space-6);
+  }
+
+  .feature-card__icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: var(--space-4);
+  }
+
+  .feature-card__title {
+    font-size: var(--font-lg);
+  }
+}

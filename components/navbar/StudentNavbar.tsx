@@ -1,3 +1,5 @@
+'use client'
+
 import './Navbar.css'
 import { useRouter } from "next/navigation";
 
@@ -6,7 +8,7 @@ const StudentNavbar = () => {
 
   return (
     <nav className='navbar'>
-      <div className="logo">
+      <div onClick={() => {router.push("/")}} className="logo">
         <p>InternFoxx</p>
       </div>
 

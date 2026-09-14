@@ -1,0 +1,381 @@
+/* ========================================
+   STUDENT DASHBOARD
+======================================== */
+
+.student-dashboard {
+  min-height: 100vh;
+
+  background: var(--background);
+
+  color: var(--text-dark);
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+.dashboard-main {
+  padding-top: 90px;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.dashboard-hero {
+  min-height: 460px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: var(--space-16) var(--page-padding) var(--space-12);
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      var(--background-glow-1),
+      transparent 45%
+    ),
+    var(--background);
+}
+
+.dashboard-hero-content {
+  max-width: 850px;
+
+  margin: 0 auto;
+}
+
+.dashboard-eyebrow,
+.section-eyebrow {
+  margin: 0 0 var(--space-3);
+
+  color: var(--purple);
+
+  font-size: var(--font-xs);
+  font-weight: var(--weight-bold);
+
+  letter-spacing: 0.14em;
+  line-height: var(--leading-normal);
+}
+
+.dashboard-title {
+  margin: 0;
+
+  color: var(--text-dark);
+
+  font-size: clamp(
+    var(--font-3xl),
+    6vw,
+    var(--font-5xl)
+  );
+
+  line-height: var(--leading-tight);
+
+  font-weight: var(--weight-extrabold);
+
+  letter-spacing: -0.045em;
+}
+
+.dashboard-title span {
+  color: var(--purple);
+}
+
+.dashboard-subtitle {
+  max-width: 650px;
+
+  margin: var(--space-6) auto 0;
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-md);
+
+  line-height: var(--leading-relaxed);
+}
+
+
+/* ========================================
+   DASHBOARD SECTIONS
+======================================== */
+
+.dashboard-tools {
+  max-width: var(--content-width);
+
+  margin: 0 auto;
+
+  padding: var(--space-10) var(--page-padding) var(--space-12);
+}
+
+/* Reduce spacing between the two sections */
+.dashboard-tools + .dashboard-tools {
+  padding-top: 0;
+}
+
+
+/* ========================================
+   SECTION HEADING
+======================================== */
+
+.section-heading {
+  max-width: 650px;
+
+  margin-bottom: var(--space-8);
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  color: var(--text-dark);
+
+  font-size: clamp(
+    var(--font-xl),
+    4vw,
+    var(--font-2xl)
+  );
+
+  line-height: var(--leading-tight);
+
+  font-weight: var(--weight-bold);
+
+  letter-spacing: -0.03em;
+}
+
+.section-heading > p:last-child {
+  margin: var(--space-2) 0 0;
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-base);
+
+  line-height: var(--leading-normal);
+}
+
+
+/* ========================================
+   TOOLS GRID
+======================================== */
+
+.tools-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: var(--space-5);
+}
+
+
+/* ========================================
+   LEARNING GRID
+======================================== */
+
+.learning-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+
+/* ========================================
+   LEGACY TOOL CARD
+======================================== */
+
+/*
+   Kept here only if you're still using
+   .tool-card somewhere else.
+
+   FeatureCard uses its own styling.
+*/
+
+.tool-card {
+  position: relative;
+
+  min-height: 190px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: var(--space-5);
+
+  padding: var(--space-6);
+
+  color: inherit;
+  background: var(--surface);
+
+  border: 1px solid var(--border-purple);
+  border-radius: var(--radius-xl);
+
+  text-decoration: none;
+
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+
+  border-color: var(--border-purple-hover);
+
+  box-shadow: var(--shadow-lg);
+}
+
+.tool-card-content {
+  max-width: 400px;
+}
+
+.tool-card h3 {
+  margin: 0 0 var(--space-3);
+
+  color: var(--text-dark);
+
+  font-size: var(--font-lg);
+  font-weight: var(--weight-bold);
+}
+
+.tool-card p {
+  margin: 0;
+
+  color: var(--text-secondary);
+
+  font-size: var(--font-sm);
+
+  line-height: var(--leading-relaxed);
+}
+
+.tool-arrow {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: var(--radius-full);
+
+  background: var(--primary-glass);
+
+  color: var(--primary);
+
+  font-size: var(--font-md);
+
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-base);
+}
+
+.tool-card:hover .tool-arrow {
+  background: var(--primary);
+
+  color: var(--surface);
+
+  transform: translateX(3px);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding-top: 75px;
+  }
+
+  .dashboard-hero {
+    min-height: auto;
+
+    padding:
+      var(--space-12)
+      var(--page-padding)
+      var(--space-10);
+  }
+
+  .dashboard-title {
+    font-size: clamp(
+      var(--font-3xl),
+      12vw,
+      var(--font-4xl)
+    );
+  }
+
+  .dashboard-subtitle {
+    font-size: var(--font-base);
+  }
+
+  .dashboard-tools {
+    padding:
+      var(--space-8)
+      var(--page-padding)
+      var(--space-10);
+  }
+
+  .dashboard-tools + .dashboard-tools {
+    padding-top: 0;
+  }
+
+  .tools-grid,
+  .learning-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+  .dashboard-main {
+    padding-top: 65px;
+  }
+
+  .dashboard-hero {
+    padding:
+      var(--space-10)
+      var(--space-5)
+      var(--space-8);
+  }
+
+  .dashboard-tools {
+    padding:
+      var(--space-6)
+      var(--space-5)
+      var(--space-8);
+  }
+
+  .section-heading {
+    margin-bottom: var(--space-6);
+  }
+
+  .section-heading h2 {
+    font-size: var(--font-xl);
+  }
+
+  .section-heading > p:last-child {
+    font-size: var(--font-sm);
+  }
+
+  .tool-card {
+    min-height: 170px;
+
+    padding: var(--space-5);
+  }
+}
