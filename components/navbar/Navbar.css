@@ -113,42 +113,6 @@
     transform 200ms ease;
 }
 
-/* Log In */
-
-.primary-btn {
-  color: var(--text-primary);
-  background: transparent;
-}
-
-.primary-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  color: var(--primary);
-  transform: translateY(-1px);
-}
-
-/* Get Started */
-
-.secondary-btn {
-  color: white;
-  background: linear-gradient(
-    135deg,
-    var(--primary) 0%,
-    var(--primary-dark) 100%
-  );
-
-  box-shadow: 0 4px 12px var(--shadow-primary);
-}
-
-.secondary-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px var(--shadow-primary-hover);
-}
-
-.primary-btn:active,
-.secondary-btn:active {
-  transform: translateY(0);
-}
-
 /* Tablet */
 
 @media (max-width: 900px) {
@@ -198,11 +162,4 @@
     gap: 4px;
   }
 
-  .primary-btn,
-  .secondary-btn {
-    min-height: 38px;
-    padding: 0 14px;
-
-    font-size: 13px;
-  }
 }

@@ -14,7 +14,7 @@ const StudentLanding = () => {
       <div className="cta">
         <div className="primary-btn">Art of cold reachout &rarr;</div>
         {/* Add secondary button here (.secondary-btn) */}
-        
+        <div className="secondary-btn">Explore the system &rarr;</div>
       </div>
     </div>
   );

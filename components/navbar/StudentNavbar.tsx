@@ -1,5 +1,9 @@
 import './Navbar.css'
+import { useRouter } from "next/navigation";
+
 const StudentNavbar = () => {
+  const router = useRouter();
+
   return (
     <nav className='navbar'>
       <div className="logo">
@@ -14,8 +18,8 @@ const StudentNavbar = () => {
       </div>
 
       <div className="auth-buttons">
-        <div className="primary-btn">Log In</div>
-        <div className="secondary-btn">Get Started</div>
+        <div className="secondary-btn" onClick={() => router.push("/login")}>Log In</div>
+        <div className="primary-btn" onClick={() => router.push("/signup?audience=student")}>Get Started</div>
       </div>
     </nav>
   )
