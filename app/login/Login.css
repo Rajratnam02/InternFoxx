@@ -81,7 +81,11 @@
    LOGO
    ======================================== */
 
-.logo {
+/* ========================================
+   LOGO
+   ======================================== */
+
+.login-logo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,9 +93,9 @@
   gap: var(--space-2);
 }
 
-.icon {
-  width: var(--space-6);
-  height: var(--space-6);
+.login-icon {
+  width: var(--space-5);
+  height: var(--space-5);
 
   border-radius: var(--radius-sm);
 
@@ -102,13 +106,13 @@
   );
 }
 
-.title {
+.login-title {
   color: var(--text-dark);
 
-  font-size: var(--font-lg);
+  font-size: var(--font-base);
   font-weight: var(--weight-bold);
 
-  letter-spacing: -0.4px;
+  letter-spacing: -0.3px;
 }
 
 
@@ -117,7 +121,7 @@
    ======================================== */
 
 .login-header {
-  margin-top: var(--space-6);
+  margin-top: var(--space-4);
 
   text-align: center;
 }
@@ -135,8 +139,6 @@
 }
 
 .login-header p {
-  margin: var(--space-2) 0 0;
-
   color: var(--text-secondary);
 
   font-size: var(--font-sm);

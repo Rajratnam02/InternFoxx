@@ -1,14 +1,22 @@
+'use client'
 import "./Login.css";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
+  const router = useRouter();
+
   return (
     <main className="login">
       <div className="login-card">
-
         {/* Logo */}
-        <div className="logo">
-          <div className="icon"></div>
-          <div className="title">InternFoxx</div>
+        <div
+          onClick={() => {
+            router.push("/");
+          }}
+          className="login-logo"
+        >
+          <div className="login-icon"></div>
+          <div className="login-title">InternFoxx</div>
         </div>
 
         {/* Header */}
@@ -22,11 +30,7 @@ const Login = () => {
           <div className="form-group">
             <label htmlFor="email">Email</label>
 
-            <input
-              id="email"
-              type="email"
-              placeholder="Enter your email"
-            />
+            <input id="email" type="email" placeholder="Enter your email" />
           </div>
 
           <div className="form-group">
@@ -45,9 +49,7 @@ const Login = () => {
               Remember me
             </label>
 
-            <a href="/forgot-password">
-              Forgot password?
-            </a>
+            <a href="/forgot-password">Forgot password?</a>
           </div>
 
           <button type="submit" className="login-btn">
@@ -73,7 +75,6 @@ const Login = () => {
           Don&apos;t have an account?
           <a href="/signup">Get Started</a>
         </p>
-
       </div>
     </main>
   );

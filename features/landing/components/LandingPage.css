@@ -2,7 +2,7 @@
    BADGE
    ======================================== */
 
-.badge {
+.landing-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -33,7 +33,7 @@
    TITLE
    ======================================== */
 
-.title {
+.landing-title {
   max-width: 650px;
   margin-top: var(--space-6);
 
@@ -46,7 +46,7 @@
   letter-spacing: -2px;
 }
 
-.title span {
+.landing-title span {
   color: var(--primary);
 }
 
@@ -55,7 +55,7 @@
    DESCRIPTION
    ======================================== */
 
-.description {
+.landing-description {
   max-width: 600px;
   margin-top: var(--space-6);
 
@@ -71,7 +71,7 @@
    CTA
    ======================================== */
 
-.cta {
+.landing-cta {
   display: flex;
   align-items: center;
   gap: var(--space-4);
@@ -88,20 +88,20 @@
    ======================================== */
 
 @media (max-width: 768px) {
-  .student-landing {
+  .student-landing, organization-landing {
     padding: 150px var(--page-padding) var(--space-20);
 
     background-position: center;
   }
 
-  .title {
+  .landing-title {
     max-width: 550px;
 
     font-size: var(--font-4xl);
     letter-spacing: -1.5px;
   }
 
-  .description {
+  .landing-description {
     max-width: 500px;
 
     font-size: var(--font-base);
@@ -120,18 +120,18 @@
     background-position: center;
   }
 
-  .badge {
+  .landing-badge {
     padding: 7px var(--space-3);
 
     font-size: var(--font-xs);
   }
 
-  .title {
+  .landing-title {
     font-size: var(--font-3xl);
     letter-spacing: -1px;
   }
 
-  .description {
+  .landing-description {
     font-size: var(--font-sm);
     line-height: var(--leading-normal);
   }
