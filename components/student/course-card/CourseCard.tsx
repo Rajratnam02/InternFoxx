@@ -1,32 +1,49 @@
-import "./CourseCard.css";
+import React from 'react';
+import './CourseCard.css';
 
-type CourseCardProps = {
+type Difficulty = 'Beginner' | 'Intermediate' | 'Advanced';
+
+interface CourseCardProps {
   eyebrow: string;
   title: string;
   description: string;
   instructor: string;
   lessons: number;
   duration: string;
-  difficulty: "Beginner" | "Intermediate" | "Advanced";
-  variant?: "purple" | "teal" | "orange" | "blue";
-  href?: string;
+  difficulty: Difficulty;
+  accentColor?: string;  // top accent bar color, defaults to #7c3aed
+  href?: string;         // defaults to '#'
+}
+
+/**
+ * Map difficulty level to its badge CSS modifier class.
+ */
+const difficultyClass: Record<Difficulty, string> = {
+  Beginner:     'CourseCard__difficulty--beginner',
+  Intermediate: 'CourseCard__difficulty--intermediate',
+  Advanced:     'CourseCard__difficulty--advanced',
 };
 
-const DIFFICULTY_COLORS: Record<string, string> = {
-  Beginner: "CourseCard__difficulty--beginner",
-  Intermediate: "CourseCard__difficulty--intermediate",
-  Advanced: "CourseCard__difficulty--advanced",
-};
+/**
+ * Generate a single-character avatar initial from an instructor name.
+ */
+function instructorInitial(name: string): string {
+  return name.trim()[0]?.toUpperCase() ?? '?';
+}
 
-const INSTRUCTOR_COLORS = [
-  "#7d6ce7",
-  "#62b7aa",
-  "#e07a5f",
-  "#3d405b",
-  "#81b29a",
-];
+/**
+ * Derive a stable accent color for the instructor avatar bubble
+ * from the accentColor prop (same hue as card accent bar).
+ */
+function avatarBg(accentColor: string): string {
+  return accentColor;
+}
 
-const CourseCard = ({
+/**
+ * CourseCard — a linked card representing a course.
+ * Used in the Courses page grid and featured section.
+ */
+export default function CourseCard({
   eyebrow,
   title,
   description,
@@ -34,58 +51,60 @@ const CourseCard = ({
   lessons,
   duration,
   difficulty,
-  variant = "purple",
-  href = "#",
-}: CourseCardProps) => {
-  const initials = instructor
-    .split(" ")
-    .map((n) => n[0])
-    .join("")
-    .slice(0, 2)
-    .toUpperCase();
-
-  const colorIndex = instructor.charCodeAt(0) % INSTRUCTOR_COLORS.length;
-
+  accentColor = '#7c3aed',
+  href = '#',
+}: CourseCardProps) {
   return (
-    <a href={href} className={`CourseCard CourseCard--${variant}`}>
-      <div className="CourseCard__top">
-        <p className="CourseCard__eyebrow">{eyebrow}</p>
+    <a className="CourseCard" href={href} aria-label={`View course: ${title}`}>
+      {/* ── Coloured top accent bar ── */}
+      <div
+        className="CourseCard__accent"
+        style={{ background: accentColor }}
+        aria-hidden="true"
+      />
 
-        <span
-          className={`CourseCard__difficulty ${DIFFICULTY_COLORS[difficulty]}`}
-        >
-          {difficulty}
+      {/* ── Card body ── */}
+      <div className="CourseCard__body">
+        {/* Top row: eyebrow + difficulty badge */}
+        <div className="CourseCard__top">
+          <span className="CourseCard__eyebrow">{eyebrow}</span>
+          <span className={`CourseCard__difficulty ${difficultyClass[difficulty]}`}>
+            {difficulty}
+          </span>
+        </div>
+
+        {/* Title */}
+        <h3 className="CourseCard__title">{title}</h3>
+
+        {/* Description */}
+        <p className="CourseCard__description">{description}</p>
+
+        {/* Footer: instructor + meta */}
+        <div className="CourseCard__footer">
+          <div className="CourseCard__instructor">
+            <div
+              className="CourseCard__instructor-avatar"
+              style={{ background: avatarBg(accentColor) }}
+              aria-hidden="true"
+            >
+              {instructorInitial(instructor)}
+            </div>
+            <span className="CourseCard__instructor-name">{instructor}</span>
+          </div>
+
+          <div className="CourseCard__meta" aria-label={`${lessons} lessons, ${duration}`}>
+            <span>{lessons} lessons</span>
+            <span>·</span>
+            <span>{duration}</span>
+          </div>
+        </div>
+
+        {/* Inline CTA link */}
+        <span className="CourseCard__link">
+          Start learning
+          <span className="CourseCard__arrow" aria-hidden="true">→</span>
         </span>
       </div>
-
-      <h3 className="CourseCard__title">{title}</h3>
-
-      <p className="CourseCard__description">{description}</p>
-
-      <div className="CourseCard__footer">
-        <div className="CourseCard__instructor">
-          <div
-            className="CourseCard__instructor-avatar"
-            style={{ background: INSTRUCTOR_COLORS[colorIndex] }}
-          >
-            {initials}
-          </div>
-          <span className="CourseCard__instructor-name">{instructor}</span>
-        </div>
-
-        <div className="CourseCard__meta">
-          <span>{lessons} lessons</span>
-          <span className="CourseCard__dot">·</span>
-          <span>{duration}</span>
-        </div>
-      </div>
-
-      <span className="CourseCard__link">
-        Start Course
-        <span className="CourseCard__arrow"> →</span>
-      </span>
     </a>
   );
-};
-
-export default CourseCard;
+}

@@ -1,8 +1,8 @@
-import StudentDashboard from "@/features/student/dashboard/dashboard"
+import Dashboard from "@/features/student/dashboard/dashboard"
 
 const StudentPage = () => {
   return (
-    <StudentDashboard />
+    <Dashboard />
   )
 }
 

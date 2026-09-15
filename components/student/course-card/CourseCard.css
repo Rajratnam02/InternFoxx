@@ -1,205 +1,184 @@
-/* =================================
-   COURSE CARD
-================================= */
+/* ============================================================
+   CourseCard.css — InternFoxx design system
+   A course card used in the Courses page grid.
+   ============================================================ */
 
+/* ── Base card ── */
 .CourseCard {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-
-  padding: 26px;
-
-  color: #17152b;
-  text-decoration: none;
-
   background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #09090b;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
 
-  border: 1px solid #e6e3ef;
-  border-radius: 22px;
-
+  /* Spring easing for lift effect */
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+    transform    280ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow   280ms ease,
+    border-color 280ms ease;
 }
 
+/* ── Hover lift ── */
 .CourseCard:hover {
-  transform: translateY(-5px);
-
-  border-color: #d9d3f7;
-
-  box-shadow: 0 20px 45px rgba(55, 42, 110, 0.09);
+  transform: translateY(-6px);
+  border-color: rgba(79, 70, 229, 0.2);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.09),
+    0 32px 56px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #ffffff;
 }
 
-/* =================================
-   VARIANTS
-================================= */
-
-.CourseCard--purple {
-  background: linear-gradient(160deg, #ffffff 50%, #f1efff 100%);
+/* ── Top accent bar (colour set via inline style) ── */
+.CourseCard__accent {
+  height: 3px;
+  width: 100%;
+  flex-shrink: 0;
 }
 
-.CourseCard--teal {
-  background: linear-gradient(160deg, #ffffff 50%, #eaf8f5 100%);
+/* ── Card body ── */
+.CourseCard__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
 }
 
-.CourseCard--orange {
-  background: linear-gradient(160deg, #ffffff 50%, #fff4e8 100%);
-}
-
-.CourseCard--blue {
-  background: linear-gradient(160deg, #ffffff 50%, #eaf2ff 100%);
-}
-
-/* =================================
-   TOP ROW
-================================= */
-
+/* ── Top row: eyebrow + difficulty badge ── */
 .CourseCard__top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
 }
 
+/* Eyebrow label */
 .CourseCard__eyebrow {
-  margin: 0;
-
-  color: #7357e8;
-
-  font-size: 0.65rem;
+  font-size: 10px;
   font-weight: 700;
-
   letter-spacing: 0.13em;
   text-transform: uppercase;
+  color: #7c3aed;
+  font-family: var(--font-jakarta), sans-serif;
 }
 
+/* ── Difficulty badge ── */
 .CourseCard__difficulty {
   padding: 3px 10px;
-
   border-radius: 999px;
-
-  font-size: 0.65rem;
+  font-size: 10px;
   font-weight: 700;
+  font-family: var(--font-jakarta), sans-serif;
 }
 
+/* Beginner — green */
 .CourseCard__difficulty--beginner {
-  background: #e6f7f0;
-  color: #1a8a5a;
+  background: #d1fae5;
+  color: #065f46;
 }
 
+/* Intermediate — amber */
 .CourseCard__difficulty--intermediate {
-  background: #fff3e0;
-  color: #c47a00;
+  background: #fef3c7;
+  color: #92400e;
 }
 
+/* Advanced — red */
 .CourseCard__difficulty--advanced {
-  background: #fdecea;
-  color: #c0392b;
+  background: #fee2e2;
+  color: #991b1b;
 }
 
-/* =================================
-   TITLE + DESCRIPTION
-================================= */
-
+/* ── Course title ── */
 .CourseCard__title {
-  margin: 0;
-
-  font-size: 1.2rem;
-  font-weight: 750;
-
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
   line-height: 1.2;
-  letter-spacing: -0.025em;
+  margin: 0;
+  color: #09090b;
+  font-family: var(--font-jakarta), sans-serif;
 }
 
+/* ── Course description ── */
 .CourseCard__description {
+  font-size: 13px;
+  color: #52525b;
+  line-height: 1.65;
   margin: 0;
-
-  color: #777487;
-
-  font-size: 0.84rem;
-  line-height: 1.6;
-
   flex: 1;
 }
 
-/* =================================
-   FOOTER
-================================= */
-
+/* ── Footer: instructor + meta ── */
 .CourseCard__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding-top: 12px;
-
-  border-top: 1px solid #f0eeff;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 
+/* Instructor row */
 .CourseCard__instructor {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+/* Instructor avatar circle */
 .CourseCard__instructor-avatar {
-  width: 26px;
-  height: 26px;
-
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
-  border-radius: 50%;
-
-  color: #ffffff;
-
-  font-size: 0.6rem;
-  font-weight: 700;
+  font-family: var(--font-jakarta), sans-serif;
 }
 
+/* Instructor name */
 .CourseCard__instructor-name {
-  color: #555368;
-
-  font-size: 0.76rem;
+  font-size: 12px;
   font-weight: 600;
+  color: #52525b;
 }
 
+/* Lessons · duration */
 .CourseCard__meta {
+  font-size: 11px;
+  color: #a1a1aa;
   display: flex;
-  align-items: center;
   gap: 4px;
-
-  color: #9090a8;
-
-  font-size: 0.72rem;
+  align-items: center;
 }
 
-.CourseCard__dot {
-  opacity: 0.5;
-}
-
-/* =================================
-   LINK
-================================= */
-
+/* ── Inline CTA link ── */
 .CourseCard__link {
   display: inline-flex;
   align-items: center;
-
-  margin-top: 4px;
-
-  color: #6351d8;
-
-  font-size: 0.8rem;
+  gap: 6px;
+  font-size: 13px;
   font-weight: 700;
+  color: #4f46e5;
+  margin-top: 4px;
+  font-family: var(--font-jakarta), sans-serif;
 }
 
+/* Arrow slides on hover */
 .CourseCard__arrow {
-  transition: transform 0.2s ease;
+  transition: transform 200ms ease;
+  display: inline-block;
 }
 
 .CourseCard:hover .CourseCard__arrow {
