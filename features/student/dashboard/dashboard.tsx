@@ -96,11 +96,11 @@ const StudentDashboard = () => {
             {dashTools.map((tool) => (
               <FeatureCard
                 key={tool.name}
+                eyebrow="CAREER TOOL"
                 title={tool.name}
                 description={tool.description}
                 href={tool.url}
-                actionLabel={tool.actionLabel}
-                icon={tool.icon}
+                linkText={tool.actionLabel}
               />
             ))}
           </div>
@@ -126,11 +126,11 @@ const StudentDashboard = () => {
             {learningResources.map((resource) => (
               <FeatureCard
                 key={resource.name}
+                eyebrow="LEARNING"
                 title={resource.name}
                 description={resource.description}
                 href={resource.url}
-                actionLabel={resource.actionLabel}
-                icon={resource.icon}
+                linkText={resource.actionLabel}
               />
             ))}
           </div>
