@@ -1,0 +1,178 @@
+/* =================================
+   MENTOR CARD
+================================= */
+
+.MentorCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  padding: 26px;
+
+  background: #ffffff;
+
+  border: 1px solid #e6e3ef;
+  border-radius: 22px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.MentorCard:hover {
+  transform: translateY(-5px);
+
+  border-color: #d9d3f7;
+
+  box-shadow: 0 20px 45px rgba(55, 42, 110, 0.09);
+}
+
+/* =================================
+   HEADER
+================================= */
+
+.MentorCard__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.MentorCard__avatar {
+  width: 52px;
+  height: 52px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  box-shadow: 0 6px 16px rgba(80, 50, 150, 0.18);
+}
+
+.MentorCard__identity {
+  min-width: 0;
+}
+
+.MentorCard__name {
+  margin: 0;
+
+  color: #17152b;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  letter-spacing: -0.02em;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.MentorCard__role {
+  margin: 3px 0 0;
+
+  color: #777487;
+
+  font-size: 0.78rem;
+  line-height: 1.4;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =================================
+   TAGS
+================================= */
+
+.MentorCard__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.MentorCard__tag {
+  padding: 4px 10px;
+
+  background: var(--lavender);
+
+  border-radius: var(--radius-full);
+
+  color: var(--text-primary);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+.MentorCard__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: auto;
+
+  padding-top: 14px;
+
+  border-top: 1px solid #f0eeff;
+}
+
+.MentorCard__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.MentorCard__stars {
+  color: #f5a623;
+
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+}
+
+.MentorCard__sessions {
+  color: #9090a8;
+
+  font-size: 0.72rem;
+}
+
+.MentorCard__btn {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 9px 16px;
+
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+
+  border-radius: var(--radius-full);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  box-shadow: 0 4px 12px var(--shadow-primary);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.MentorCard__btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 6px 16px var(--shadow-primary-hover);
+}
