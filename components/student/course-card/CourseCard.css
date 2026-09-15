@@ -1,0 +1,207 @@
+/* =================================
+   COURSE CARD
+================================= */
+
+.CourseCard {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  padding: 26px;
+
+  color: #17152b;
+  text-decoration: none;
+
+  background: #ffffff;
+
+  border: 1px solid #e6e3ef;
+  border-radius: 22px;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.CourseCard:hover {
+  transform: translateY(-5px);
+
+  border-color: #d9d3f7;
+
+  box-shadow: 0 20px 45px rgba(55, 42, 110, 0.09);
+}
+
+/* =================================
+   VARIANTS
+================================= */
+
+.CourseCard--purple {
+  background: linear-gradient(160deg, #ffffff 50%, #f1efff 100%);
+}
+
+.CourseCard--teal {
+  background: linear-gradient(160deg, #ffffff 50%, #eaf8f5 100%);
+}
+
+.CourseCard--orange {
+  background: linear-gradient(160deg, #ffffff 50%, #fff4e8 100%);
+}
+
+.CourseCard--blue {
+  background: linear-gradient(160deg, #ffffff 50%, #eaf2ff 100%);
+}
+
+/* =================================
+   TOP ROW
+================================= */
+
+.CourseCard__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.CourseCard__eyebrow {
+  margin: 0;
+
+  color: #7357e8;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.CourseCard__difficulty {
+  padding: 3px 10px;
+
+  border-radius: 999px;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.CourseCard__difficulty--beginner {
+  background: #e6f7f0;
+  color: #1a8a5a;
+}
+
+.CourseCard__difficulty--intermediate {
+  background: #fff3e0;
+  color: #c47a00;
+}
+
+.CourseCard__difficulty--advanced {
+  background: #fdecea;
+  color: #c0392b;
+}
+
+/* =================================
+   TITLE + DESCRIPTION
+================================= */
+
+.CourseCard__title {
+  margin: 0;
+
+  font-size: 1.2rem;
+  font-weight: 750;
+
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.CourseCard__description {
+  margin: 0;
+
+  color: #777487;
+
+  font-size: 0.84rem;
+  line-height: 1.6;
+
+  flex: 1;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+.CourseCard__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-top: 12px;
+
+  border-top: 1px solid #f0eeff;
+}
+
+.CourseCard__instructor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.CourseCard__instructor-avatar {
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  color: #ffffff;
+
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+
+.CourseCard__instructor-name {
+  color: #555368;
+
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.CourseCard__meta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: #9090a8;
+
+  font-size: 0.72rem;
+}
+
+.CourseCard__dot {
+  opacity: 0.5;
+}
+
+/* =================================
+   LINK
+================================= */
+
+.CourseCard__link {
+  display: inline-flex;
+  align-items: center;
+
+  margin-top: 4px;
+
+  color: #6351d8;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.CourseCard__arrow {
+  transition: transform 0.2s ease;
+}
+
+.CourseCard:hover .CourseCard__arrow {
+  transform: translateX(4px);
+}
