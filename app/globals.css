@@ -1,87 +1,130 @@
 @import "tailwindcss";
 
+/* ====================================================
+   INTERNFOXX DESIGN SYSTEM v2
+   Linear x Luma x Vercel — Light · Premium · Precise
+   ==================================================== */
+
 :root {
-  /* ========================================
-     COLORS
-     ======================================== */
+  /* ====================================================
+     BRAND
+     ==================================================== */
 
-  /* Brand */
-  --primary: #3024ff;
-  --primary-dark: #174ee8;
-  --purple: #7c5cff;
-  --purple-light: #a99cff;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --primary-light: #818cf8;
 
-  /* Text */
-  --text-primary: #11145c;
-  --text-dark: #080b3d;
-  --text-secondary: #5d6080;
-  --text-muted: #8588a3;
+  --accent: #7c3aed;
+  --accent-dark: #5b21b6;
+  --accent-light: #ede9fe;
 
-  /* Background */
-  --background: #f5f4ff;
-  --background-light: #f0eeff;
+  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+
+  /* Legacy aliases */
+  --purple: #7c3aed;
+  --purple-light: #a78bfa;
+  --primary-glass: rgba(79, 70, 229, 0.08);
+
+  /* ====================================================
+     BACKGROUNDS
+     ==================================================== */
+
+  --background: #fafafa;
+  --background-subtle: #f4f4f5;
+  --background-accent: #ede9fe;
   --surface: #ffffff;
 
-  /* Lavender */
-  --lavender: #ebe8ff;
-  --lavender-light: #f0efff;
+  --background-glow-1: rgba(124, 58, 237, 0.08);
+  --background-glow-2: rgba(79, 70, 229, 0.06);
+  --background-glow-3: rgba(129, 140, 248, 0.08);
 
-  /* ========================================
-     BACKGROUND GRADIENTS
-     ======================================== */
+  /* Legacy */
+  --background-light: #f4f4f5;
+  --lavender: #ede9fe;
+  --lavender-light: #f5f3ff;
 
-  --background-glow-1: rgba(124, 92, 255, 0.18);
-  --background-glow-2: rgba(48, 36, 255, 0.12);
-  --background-glow-3: rgba(169, 156, 255, 0.12);
+  /* ====================================================
+     TEXT
+     ==================================================== */
 
-  /* Login */
-  --login-overlay: rgba(240, 238, 255, 0.18);
-  /* ========================================
-   GLASS
-   ======================================== */
+  --text-display: #09090b;
+  --text-body: #52525b;
+  --text-muted: #a1a1aa;
+  --text-inverse: #ffffff;
 
-  --glass: rgba(255, 255, 255, 0.35);
-  --glass-light: rgba(255, 255, 255, 0.52);
-  --glass-strong: rgba(255, 255, 255, 0.78);
+  /* Legacy aliases */
+  --text-dark: #09090b;
+  --text-primary: #3730a3;
+  --text-secondary: #52525b;
+  --foreground: #09090b;
 
-  --primary-glass: rgba(48, 36, 255, 0.08);
-
-  /* ========================================
+  /* ====================================================
      BORDERS
-     ======================================== */
-  --border-light: rgba(255, 255, 255, 0.8);
-  --border-purple: rgba(48, 36, 255, 0.15);
-  --border-purple-hover: rgba(48, 36, 255, 0.35);
-  --border-light: rgba(255, 255, 255, 0.8);
-  --border-purple: rgba(48, 36, 255, 0.15);
+     ==================================================== */
 
-  /* ========================================
+  --border: rgba(0, 0, 0, 0.07);
+  --border-hover: rgba(0, 0, 0, 0.12);
+  --border-accent: rgba(79, 70, 229, 0.2);
+  --border-accent-hover: rgba(79, 70, 229, 0.35);
+
+  /* Legacy aliases */
+  --border-light: rgba(255, 255, 255, 0.85);
+  --border-purple: rgba(79, 70, 229, 0.15);
+  --border-purple-hover: rgba(79, 70, 229, 0.35);
+
+  /* ====================================================
+     GLASS
+     ==================================================== */
+
+  --glass: rgba(255, 255, 255, 0.4);
+  --glass-light: rgba(255, 255, 255, 0.55);
+  --glass-strong: rgba(255, 255, 255, 0.85);
+
+  /* ====================================================
      SHADOWS
-     ======================================== */
+     ==================================================== */
 
-  --shadow-sm: 0 2px 8px rgba(37, 38, 170, 0.08);
-  --shadow-md: 0 8px 24px rgba(37, 38, 170, 0.1);
-  --shadow-lg: 0 16px 45px rgba(37, 38, 170, 0.12);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
 
-  --shadow-primary: rgba(39, 49, 235, 0.35);
-  --shadow-primary-hover: rgba(39, 49, 235, 0.45);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.04);
 
-  /* ========================================
+  --shadow-md:
+    0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 16px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  --shadow-lg:
+    0 2px 4px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.08),
+    0 40px 64px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 1);
+
+  --shadow-card:
+    0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+
+  --shadow-card-hover:
+    0 2px 4px rgba(0, 0, 0, 0.05), 0 8px 24px rgba(0, 0, 0, 0.09),
+    0 32px 56px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 1);
+
+  --shadow-primary: rgba(79, 70, 229, 0.35);
+  --shadow-primary-hover: rgba(79, 70, 229, 0.48);
+
+  /* ====================================================
      TYPOGRAPHY
-     ======================================== */
+     ==================================================== */
 
-  --font-family: Arial, Helvetica, sans-serif;
+  --font-family:
+    var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system,
+    sans-serif;
 
-  --font-xs: 12px;
-  --font-sm: 14px;
-  --font-base: 16px;
-  --font-md: 18px;
-  --font-lg: 20px;
+  --font-xs: 11px;
+  --font-sm: 13px;
+  --font-base: 15px;
+  --font-md: 17px;
+  --font-lg: 19px;
   --font-xl: 24px;
   --font-2xl: 32px;
-  --font-3xl: 40px;
-  --font-4xl: 48px;
-  --font-5xl: 64px;
+  --font-3xl: 42px;
+  --font-4xl: 52px;
+  --font-5xl: 68px;
 
   --weight-regular: 400;
   --weight-medium: 500;
@@ -89,18 +132,18 @@
   --weight-bold: 700;
   --weight-extrabold: 800;
 
-  /* ========================================
+  /* ====================================================
      LINE HEIGHT
-     ======================================== */
+     ==================================================== */
 
-  --leading-tight: 1.1;
-  --leading-snug: 1.2;
+  --leading-tight: 1.08;
+  --leading-snug: 1.18;
   --leading-normal: 1.5;
-  --leading-relaxed: 1.6;
+  --leading-relaxed: 1.65;
 
-  /* ========================================
+  /* ====================================================
      SPACING
-     ======================================== */
+     ==================================================== */
 
   --space-1: 4px;
   --space-2: 8px;
@@ -115,72 +158,57 @@
   --space-20: 80px;
   --space-24: 96px;
 
-  /* ========================================
+  /* ====================================================
      BORDER RADIUS
-     ======================================== */
+     ==================================================== */
 
-  --radius-sm: 8px;
+  --radius-sm: 6px;
   --radius-md: 10px;
   --radius-lg: 14px;
   --radius-xl: 20px;
-  --radius-2xl: 28px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
   --radius-full: 999px;
 
-  /* ========================================
+  /* ====================================================
      TRANSITIONS
-     ======================================== */
+     ==================================================== */
+
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   --transition-fast: 150ms ease;
-  --transition-base: 200ms ease;
-  --transition-slow: 300ms ease;
+  --transition-base: 220ms ease;
+  --transition-slow: 350ms ease;
 
-  /* ========================================
+  /* ====================================================
      LAYOUT
-     ======================================== */
+     ==================================================== */
 
   --content-width: 1200px;
-  --navbar-width: 90%;
   --page-padding: 5%;
-
-  /* ========================================
-     THEME
-     ======================================== */
-
-  --foreground: var(--text-dark);
+  --navbar-width: 90%;
 }
 
-/* ========================================
-   TAILWIND THEME
-   ======================================== */
+/* ====================================================
+   TAILWIND THEME BRIDGE
+   ==================================================== */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-
   --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
-
-  --color-text-primary: var(--text-primary);
-  --color-text-dark: var(--text-dark);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-
   --color-surface: var(--surface);
-
-  --color-lavender: var(--lavender);
-  --color-lavender-light: var(--lavender-light);
-
-  --color-purple: var(--purple);
-  --color-purple-light: var(--purple-light);
-
   --font-sans: var(--font-family);
 }
 
-/* ========================================
-   RESET
-   ======================================== */
+/* ====================================================
+   BASE RESET
+   ==================================================== */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -188,36 +216,62 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
+/* ====================================================
+   SCROLLBAR
+   ==================================================== */
 
-  color: var(--foreground);
-  font-family: var(--font-family);
-
-  background:
-    radial-gradient(
-      circle at 10% 10%,
-      var(--background-glow-1),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 90% 20%,
-      var(--background-glow-2),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 50% 100%,
-      var(--background-glow-3),
-      transparent 35%
-    ),
-    var(--background-light);
-
-  background-attachment: fixed;
+::-webkit-scrollbar {
+  width: 5px;
 }
 
-/* ========================================
-   DEFAULT ELEMENTS
-   ======================================== */
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent), var(--primary));
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* ====================================================
+   BODY + NOISE TEXTURE
+   ==================================================== */
+
+body {
+  margin: 0;
+  color: var(--text-display);
+  font-family: var(--font-family);
+  font-feature-settings: "ss01", "ss02", "cv01";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--background);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  background-repeat: repeat;
+}
+
+/* ====================================================
+   ELEMENT DEFAULTS
+   ==================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 button,
 input,
@@ -228,6 +282,7 @@ select {
 
 button {
   border: 0;
+  cursor: pointer;
 }
 
 a {
@@ -240,102 +295,170 @@ img {
   display: block;
 }
 
-/* ========================================
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+/* ====================================================
    ACCESSIBILITY
-   ======================================== */
+   ==================================================== */
 
 :focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 3px;
+  border-radius: 4px;
 }
 
-/* ========================================
+/* ====================================================
    SELECTION
-   ======================================== */
+   ==================================================== */
 
 ::selection {
   color: var(--surface);
   background: var(--primary);
 }
 
-/* ========================================
-   GLOBAL BUTTONS
-   ======================================== */
+/* ====================================================
+   UTILITY — GRADIENT TEXT
+   ==================================================== */
 
-.primary-btn,
-.secondary-btn {
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ====================================================
+   UTILITY — EYEBROW LABEL
+   ==================================================== */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  display: block;
+  width: 5px;
+  height: 5px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* ====================================================
+   PRIMARY BUTTON
+   ==================================================== */
+
+.primary-btn {
+  position: relative;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  padding: var(--space-3) var(--space-6);
-
+  gap: 6px;
+  padding: 11px 22px;
+  color: #ffffff;
+  background: var(--accent-gradient);
+  border: 1px solid transparent;
   border-radius: var(--radius-full);
-
-  font-size: var(--font-sm);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-tight);
-
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1;
   cursor: pointer;
-
+  box-shadow:
+    0 1px 2px rgba(79, 70, 229, 0.2),
+    0 4px 14px rgba(79, 70, 229, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transition:
-    background-color var(--transition-base),
-    border-color var(--transition-base),
-    box-shadow var(--transition-base),
-    transform var(--transition-base);
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
-/* ========================================
-   PRIMARY BUTTON
-   Blue
-   ======================================== */
+.primary-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    108deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.24) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 600ms ease;
+}
 
-.primary-btn {
-  color: var(--surface);
-
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-
-  border: 1px solid transparent;
-
-  box-shadow: 0 4px 12px var(--shadow-primary);
+.primary-btn:hover::after {
+  transform: translateX(100%);
 }
 
 .primary-btn:hover {
   transform: translateY(-2px);
-
-  box-shadow: 0 6px 16px var(--shadow-primary-hover);
+  box-shadow:
+    0 2px 4px rgba(79, 70, 229, 0.2),
+    0 8px 24px rgba(79, 70, 229, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 .primary-btn:active {
-  transform: translateY(0);
+  transform: translateY(0px);
 }
 
-/* ========================================
+/* ====================================================
    SECONDARY BUTTON
-   Whitish / Glass
-   ======================================== */
+   ==================================================== */
 
 .secondary-btn {
-  color: var(--text-primary);
-
-  background: var(--glass-light);
-
-  border: 1px solid var(--border-purple);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 11px 22px;
+  color: var(--text-display);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 200ms ease;
 }
 
 .secondary-btn:hover {
   transform: translateY(-2px);
-
-  background: var(--glass-strong);
-
-  border-color: var(--border-purple-hover);
-
+  border-color: var(--border-accent);
   box-shadow: var(--shadow-md);
 }
 
 .secondary-btn:active {
-  transform: translateY(0);
+  transform: translateY(0px);
 }

@@ -1,86 +1,89 @@
+/* ================================================
+   INTERNFOXX NAVBAR — Luminous floating glass pill
+   ================================================ */
+
 .navbar {
   position: fixed;
-  top: 20px;
+  top: 18px;
   left: 5%;
   right: 5%;
   z-index: 1000;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 10px 14px;
-
-  background: rgba(255, 255, 255, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  padding: 8px 10px 8px 20px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.85);
   border-radius: 999px;
-
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
   box-shadow:
-    0 8px 32px rgba(37, 38, 170, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    0 8px 32px rgba(0, 0, 0, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
 }
 
-/* Logo */
+/* ================================================
+   LOGO
+   ================================================ */
 
 .logo {
   display: flex;
   align-items: center;
-  padding: 0 18px;
+  padding: 0 16px 0 0;
   cursor: pointer;
 }
 
 .logo p {
   margin: 0;
-
-  color: var(--text-dark);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Navigation */
+/* ================================================
+   NAV LIST
+   ================================================ */
 
 .nav-list {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
 }
 
 .nav-list ul {
   display: flex;
   align-items: center;
   justify-content: center;
-
   margin: 0;
-  padding: 10px 16px;
-
-  color: var(--text-primary);
-  font-size: 15px;
+  padding: 8px 14px;
+  color: #52525b;
+  font-size: 13px;
   font-weight: 600;
   line-height: 1;
-
+  letter-spacing: -0.01em;
   list-style: none;
   white-space: nowrap;
-
   border-radius: 999px;
   cursor: pointer;
-
   transition:
-    background-color 200ms ease,
-    color 200ms ease,
-    transform 200ms ease;
+    background-color 180ms ease,
+    color 180ms ease;
 }
 
 .nav-list ul:hover {
-  background: rgba(255, 255, 255, 0.35);
-  color: var(--primary);
-  transform: translateY(-1px);
+  background: rgba(79, 70, 229, 0.07);
+  color: #4f46e5;
 }
 
-/* Authentication */
+/* ================================================
+   AUTH BUTTONS
+   ================================================ */
 
 .auth-buttons {
   display: flex;
@@ -88,79 +91,42 @@
   gap: 6px;
 }
 
-/* Shared button styles */
-
-.primary-btn,
-.secondary-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 42px;
-  padding: 0 20px;
-
-  border-radius: 999px;
-
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-
-  cursor: pointer;
-
-  transition:
-    background 200ms ease,
-    color 200ms ease,
-    box-shadow 200ms ease,
-    transform 200ms ease;
+.auth-buttons .primary-btn,
+.auth-buttons .secondary-btn {
+  padding: 9px 18px;
+  font-size: 13px;
 }
 
-/* Tablet */
+/* ================================================
+   RESPONSIVE
+   ================================================ */
 
 @media (max-width: 900px) {
   .navbar {
     left: 3%;
     right: 3%;
-  }
-
-  .logo {
-    padding: 0 10px;
-  }
-
-  .nav-list {
-    gap: 2px;
+    padding: 8px 8px 8px 18px;
   }
 
   .nav-list ul {
-    padding: 10px 12px;
-    font-size: 14px;
+    padding: 8px 11px;
+    font-size: 12.5px;
   }
 }
-
-/* Mobile */
 
 @media (max-width: 700px) {
   .navbar {
     top: 12px;
     left: 16px;
     right: 16px;
-
-    padding: 8px 10px;
+    padding: 7px 8px 7px 16px;
   }
 
   .nav-list {
     display: none;
   }
 
-  .logo {
-    padding: 0 8px;
-  }
-
   .logo p {
-    font-size: 20px;
+    font-size: 16px;
   }
-
-  .auth-buttons {
-    gap: 4px;
-  }
-
 }

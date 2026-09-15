@@ -1,381 +1,537 @@
-/* ========================================
-   STUDENT DASHBOARD
-======================================== */
+/* ============================================================
+   dashboard.css — InternFoxx Student Dashboard
+   Bento Grid Layout — Plus Jakarta Sans, Indigo/Purple system
+   ============================================================ */
 
-.student-dashboard {
-  min-height: 100vh;
+/* ── Design Tokens ──────────────────────────────────────────── */
+:root {
+  --color-bg: #fafafa;
+  --color-surface: #ffffff;
+  --color-text-display: #09090b;
+  --color-text-body: #52525b;
+  --color-text-muted: #a1a1aa;
+  --color-primary: #4f46e5;
+  --color-primary-dark: #3730a3;
+  --color-accent: #7c3aed;
+  --color-accent-light: #ede9fe;
+  --color-border: rgba(0, 0, 0, 0.07);
+  --color-border-accent: rgba(79, 70, 229, 0.2);
 
-  background: var(--background);
+  --accent-gradient: linear-gradient(135deg, #7c3aed, #4f46e5);
 
-  color: var(--text-dark);
+  --shadow-card:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+
+  --shadow-card-hover:
+    0 2px 4px rgba(0, 0, 0, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.09),
+    0 32px 56px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 #ffffff;
+
+  --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-
-/* ========================================
-   MAIN
-======================================== */
+/* ── Page Shell ─────────────────────────────────────────────── */
+.dashboard {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text-display);
+  font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+}
 
 .dashboard-main {
+  /* Offset content below the fixed floating navbar (top:18 + ~52px height) */
   padding-top: 90px;
 }
 
-
-/* ========================================
-   HERO
-======================================== */
-
-.dashboard-hero {
-  min-height: 460px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: var(--space-16) var(--page-padding) var(--space-12);
-
-  text-align: center;
-
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      var(--background-glow-1),
-      transparent 45%
-    ),
-    var(--background);
+/* ── Gradient text utility ──────────────────────────────────── */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }
 
-.dashboard-hero-content {
-  max-width: 850px;
+/* ============================================================
+   HEADER SECTION
+   ============================================================ */
+.dashboard-header {
+  padding: 80px 5% 48px;
+  background: var(--color-surface);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
 
+.dashboard-header-inner {
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.dashboard-eyebrow,
-.section-eyebrow {
-  margin: 0 0 var(--space-3);
+/* Eyebrow label with ::before glow dot */
+.dashboard-eyebrow {
+  /* Glow dot prefix */
+  display: flex;
+  align-items: center;
 
-  color: var(--purple);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 16px;
+}
 
-  font-size: var(--font-xs);
-  font-weight: var(--weight-bold);
-
-  letter-spacing: 0.14em;
-  line-height: var(--leading-normal);
+.dashboard-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);
+  margin-right: 8px;
+  flex-shrink: 0;
 }
 
 .dashboard-title {
-  margin: 0;
-
-  color: var(--text-dark);
-
-  font-size: clamp(
-    var(--font-3xl),
-    6vw,
-    var(--font-5xl)
-  );
-
-  line-height: var(--leading-tight);
-
-  font-weight: var(--weight-extrabold);
-
-  letter-spacing: -0.045em;
-}
-
-.dashboard-title span {
-  color: var(--purple);
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+  margin: 0 0 16px;
+  color: var(--color-text-display);
 }
 
 .dashboard-subtitle {
-  max-width: 650px;
-
-  margin: var(--space-6) auto 0;
-
-  color: var(--text-secondary);
-
-  font-size: var(--font-md);
-
-  line-height: var(--leading-relaxed);
+  font-size: 1.05rem;
+  color: var(--color-text-body);
+  line-height: 1.65;
+  max-width: 580px;
+  margin: 0;
 }
 
+/* ============================================================
+   BENTO GRID SECTION
+   ============================================================ */
+.dashboard-bento-section {
+  padding: 32px 5% 40px;
+}
 
-/* ========================================
-   DASHBOARD SECTIONS
-======================================== */
-
-.dashboard-tools {
-  max-width: var(--content-width);
-
+.dashboard-bento {
+  max-width: 1200px;
   margin: 0 auto;
 
-  padding: var(--space-10) var(--page-padding) var(--space-12);
-}
-
-/* Reduce spacing between the two sections */
-.dashboard-tools + .dashboard-tools {
-  padding-top: 0;
-}
-
-
-/* ========================================
-   SECTION HEADING
-======================================== */
-
-.section-heading {
-  max-width: 650px;
-
-  margin-bottom: var(--space-8);
-}
-
-.section-heading h2 {
-  margin: 0;
-
-  color: var(--text-dark);
-
-  font-size: clamp(
-    var(--font-xl),
-    4vw,
-    var(--font-2xl)
-  );
-
-  line-height: var(--leading-tight);
-
-  font-weight: var(--weight-bold);
-
-  letter-spacing: -0.03em;
-}
-
-.section-heading > p:last-child {
-  margin: var(--space-2) 0 0;
-
-  color: var(--text-secondary);
-
-  font-size: var(--font-base);
-
-  line-height: var(--leading-normal);
-}
-
-
-/* ========================================
-   TOOLS GRID
-======================================== */
-
-.tools-grid {
   display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: var(--space-5);
+  /* 3 equal columns; large card spans 2, tall card spans 1 */
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
 }
 
-
-/* ========================================
-   LEARNING GRID
-======================================== */
-
-.learning-grid {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-
-/* ========================================
-   LEGACY TOOL CARD
-======================================== */
-
-/*
-   Kept here only if you're still using
-   .tool-card somewhere else.
-
-   FeatureCard uses its own styling.
-*/
-
-.tool-card {
-  position: relative;
-
-  min-height: 190px;
-
+/* ============================================================
+   BENTO CARD — BASE STYLES
+   ============================================================ */
+.bento-card {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+
+  /* Reset link styles */
+  text-decoration: none;
+  color: inherit;
+
+  /* Spring hover transition */
+  transition:
+    transform 280ms var(--easing-spring),
+    box-shadow 280ms ease,
+    border-color 280ms ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-border-accent);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* ============================================================
+   LARGE CARD — ATS Checker (spans 2 columns)
+   ============================================================ */
+.bento-card--large {
+  grid-column: span 2;
+  grid-row: 1;
+
+  min-height: 420px;
+  padding: 48px 52px;
+
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 
-  gap: var(--space-5);
-
-  padding: var(--space-6);
-
-  color: inherit;
-  background: var(--surface);
-
-  border: 1px solid var(--border-purple);
-  border-radius: var(--radius-xl);
-
-  text-decoration: none;
-
-  transition:
-    transform var(--transition-base),
-    box-shadow var(--transition-base),
-    border-color var(--transition-base);
+  /* Soft lavender gradient background */
+  background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 40%, #e0e7ff 100%);
+  border-color: rgba(124, 58, 237, 0.15);
 }
 
-.tool-card:hover {
-  transform: translateY(-5px);
-
-  border-color: var(--border-purple-hover);
-
-  box-shadow: var(--shadow-lg);
+/* Hero image — absolutely fills the right half */
+.bento-card--large .bento-card-visual {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
 }
 
-.tool-card-content {
-  max-width: 400px;
+.bento-card--large .bento-card-visual img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
-.tool-card h3 {
-  margin: 0 0 var(--space-3);
-
-  color: var(--text-dark);
-
-  font-size: var(--font-lg);
-  font-weight: var(--weight-bold);
+/* Text content sits above visual */
+.bento-card--large .bento-card-content {
+  position: relative;
+  z-index: 2;
+  max-width: 420px;
 }
 
-.tool-card p {
-  margin: 0;
+/* ============================================================
+   TALL CARD — Sessions (col 3, spans full height of row 1)
+   ============================================================ */
+.bento-card--tall {
+  grid-column: 3;
+  grid-row: 1;
 
-  color: var(--text-secondary);
+  min-height: 420px;
+  padding: 36px;
 
-  font-size: var(--font-sm);
-
-  line-height: var(--leading-relaxed);
+  /* Subtle green-tinted gradient */
+  background: linear-gradient(160deg, #fafafa 0%, #f0fdf4 100%);
 }
 
-.tool-arrow {
-  width: 42px;
-  height: 42px;
+/* Avatar stack */
+.bento-avatars {
+  display: flex;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 20px;
+}
 
+.bento-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 
+  font-size: 10px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0;
+
+  /* White ring border for stacking illusion */
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+
   flex-shrink: 0;
+  position: relative;
+}
 
-  border-radius: var(--radius-full);
+.bento-avatar-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-body);
+  margin-left: 10px;
+  white-space: nowrap;
+}
 
-  background: var(--primary-glass);
+/* ============================================================
+   SMALL CARDS — Row 2 (Courses, Resources, Mail)
+   ============================================================ */
+.bento-card--small {
+  grid-row: 2;
+  min-height: 180px;
+  padding: 28px 30px;
 
-  color: var(--primary);
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-  font-size: var(--font-md);
+/* Courses — lavender tint */
+.bento-card--courses {
+  background: linear-gradient(160deg, #ffffff 50%, #ede9fe 100%);
+}
+
+/* Resources — amber tint */
+.bento-card--resources {
+  background: linear-gradient(160deg, #ffffff 50%, #fef3c7 100%);
+}
+
+/* Mail Merge — green tint */
+.bento-card--mail {
+  background: linear-gradient(160deg, #ffffff 50%, #dcfce7 100%);
+}
+
+/* ============================================================
+   CARD TYPOGRAPHY
+   ============================================================ */
+
+/* Eyebrow — uppercase label with glow dot prefix */
+.bento-eyebrow {
+  display: flex;
+  align-items: center;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 14px;
+}
+
+.bento-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent);
+  margin-right: 7px;
+  flex-shrink: 0;
+}
+
+/* Large heading inside bento cards */
+.bento-title {
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  margin: 0 0 12px;
+  color: var(--color-text-display);
+}
+
+/* Smaller heading for compact cards */
+.bento-title-sm {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  margin: 0 0 16px;
+  color: var(--color-text-display);
+}
+
+/* Body description text */
+.bento-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-body);
+  line-height: 1.65;
+  max-width: 380px;
+  margin: 0 0 24px;
+}
+
+/* CTA link row */
+.bento-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  text-decoration: none;
+}
+
+/* Arrow nudge on parent card hover */
+.bento-arrow {
+  display: inline-block;
+  transition: transform 200ms ease;
+}
+
+.bento-card:hover .bento-arrow {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   CTA BANNER SECTION
+   ============================================================ */
+.dashboard-cta-section {
+  padding: 0 5% 80px;
+}
+
+.dashboard-cta {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 52px 60px;
+  border-radius: 24px;
+
+  /* Deep indigo-to-violet gradient */
+  background: linear-gradient(135deg, #1e1b4b, #312e81, #4c1d95);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+
+  color: #ffffff;
+}
+
+.dashboard-cta-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Override eyebrow color inside dark CTA */
+.dashboard-cta-eyebrow {
+  color: #a5b4fc !important;
+}
+
+.dashboard-cta-eyebrow::before {
+  background: #a5b4fc !important;
+  box-shadow: 0 0 8px #a5b4fc !important;
+}
+
+.dashboard-cta h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin: 8px 0;
+  color: #ffffff;
+  line-height: 1.1;
+}
+
+.dashboard-cta p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* White pill CTA button */
+.dashboard-cta-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 26px;
+
+  background: #ffffff;
+  color: var(--color-primary);
+  border-radius: 999px;
+  font-family: var(--font-jakarta), 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  white-space: nowrap;
 
   transition:
-    background-color var(--transition-base),
-    color var(--transition-base),
-    transform var(--transition-base);
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
-.tool-card:hover .tool-arrow {
-  background: var(--primary);
-
-  color: var(--surface);
-
-  transform: translateX(3px);
+.dashboard-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
-
-/* ========================================
-   TABLET
-======================================== */
-
+/* ============================================================
+   RESPONSIVE — Tablet (≤ 900px)
+   ============================================================ */
 @media (max-width: 900px) {
-  .tools-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-
-/* ========================================
-   MOBILE
-======================================== */
-
-@media (max-width: 768px) {
-  .dashboard-main {
-    padding-top: 75px;
-  }
-
-  .dashboard-hero {
-    min-height: auto;
-
-    padding:
-      var(--space-12)
-      var(--page-padding)
-      var(--space-10);
-  }
-
-  .dashboard-title {
-    font-size: clamp(
-      var(--font-3xl),
-      12vw,
-      var(--font-4xl)
-    );
-  }
-
-  .dashboard-subtitle {
-    font-size: var(--font-base);
-  }
-
-  .dashboard-tools {
-    padding:
-      var(--space-8)
-      var(--page-padding)
-      var(--space-10);
-  }
-
-  .dashboard-tools + .dashboard-tools {
-    padding-top: 0;
-  }
-
-  .tools-grid,
-  .learning-grid {
+  /* Collapse to a single column grid */
+  .dashboard-bento {
     grid-template-columns: 1fr;
   }
+
+  /* Large card fills full single column */
+  .bento-card--large {
+    grid-column: span 1;
+    grid-row: auto;
+    min-height: 340px;
+    padding: 36px 36px;
+    flex-direction: column;
+  }
+
+  /* Visual moves out of absolute positioning on small screens */
+  .bento-card--large .bento-card-visual {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin-top: 24px;
+  }
+
+  /* Tall card also stacks */
+  .bento-card--tall {
+    grid-column: span 1;
+    grid-row: auto;
+  }
+
+  /* Small cards also stack */
+  .bento-card--small {
+    grid-row: auto;
+  }
+
+  .dashboard-header {
+    padding: 60px 5% 36px;
+  }
 }
 
-
-/* ========================================
-   SMALL MOBILE
-======================================== */
-
-@media (max-width: 480px) {
-  .dashboard-main {
-    padding-top: 65px;
+/* ============================================================
+   RESPONSIVE — Mobile (≤ 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+  .dashboard-header {
+    padding: 48px 5% 28px;
   }
 
-  .dashboard-hero {
-    padding:
-      var(--space-10)
-      var(--space-5)
-      var(--space-8);
+  .dashboard-bento-section {
+    padding: 20px 5% 28px;
   }
 
-  .dashboard-tools {
-    padding:
-      var(--space-6)
-      var(--space-5)
-      var(--space-8);
+  .dashboard-bento {
+    gap: 12px;
   }
 
-  .section-heading {
-    margin-bottom: var(--space-6);
+  .bento-card--large {
+    min-height: 280px;
+    padding: 28px 24px;
   }
 
-  .section-heading h2 {
-    font-size: var(--font-xl);
+  .bento-card--tall {
+    min-height: 320px;
+    padding: 28px 24px;
   }
 
-  .section-heading > p:last-child {
-    font-size: var(--font-sm);
+  .bento-card--small {
+    min-height: 160px;
+    padding: 22px 22px;
   }
 
-  .tool-card {
-    min-height: 170px;
+  /* CTA stacks vertically on mobile */
+  .dashboard-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 28px;
+    gap: 24px;
+  }
 
-    padding: var(--space-5);
+  .dashboard-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dashboard-cta-section {
+    padding: 0 5% 48px;
   }
 }
