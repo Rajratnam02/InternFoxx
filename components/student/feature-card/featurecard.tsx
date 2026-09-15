@@ -1,68 +1,42 @@
-import Link from "next/link";
-import type { ReactNode } from "react";
+import { ReactNode } from "react";
 import "./featurecard.css";
-interface FeatureCardProps {
+
+type FeatureCardProps = {
+  eyebrow: string;
   title: string;
   description: string;
+  linkText: string;
   href: string;
-  icon?: ReactNode;
-  actionLabel?: string;
-  className?: string;
-  disabled?: boolean;
-}
+  visual?: ReactNode;
+  variant?: string;
+};
 
 const FeatureCard = ({
+  eyebrow,
   title,
   description,
+  linkText,
   href,
-  icon,
-  actionLabel = "Open",
-  className = "",
-  disabled = false,
+  visual,
+  variant = "default",
 }: FeatureCardProps) => {
-  if (disabled) {
-    return (
-      <article
-        className={`feature-card feature-card--disabled ${className}`}
-        aria-disabled="true"
-      >
-        {icon && (
-          <div className="feature-card__icon" aria-hidden="true">
-            {icon}
-          </div>
-        )}
-
-        <div className="feature-card__content">
-          <h3 className="feature-card__title">{title}</h3>
-
-          <p className="feature-card__description">{description}</p>
-        </div>
-
-        <span className="feature-card__action">{actionLabel} →</span>
-      </article>
-    );
-  }
-
   return (
-    <Link
-      href={href}
-      className={`feature-card ${className}`}
-      aria-label={`${title}: ${description}`}
-    >
-      {icon && (
-        <div className="feature-card__icon" aria-hidden="true">
-          {icon}
-        </div>
-      )}
+    <a href={href} className={`FeatureCard FeatureCard--${variant}`}>
+      <div className="FeatureCard__content">
+        <p className="FeatureCard__eyebrow">{eyebrow}</p>
 
-      <div className="feature-card__content">
-        <h3 className="feature-card__title">{title}</h3>
+        <h3 className="FeatureCard__title">{title}</h3>
 
-        <p className="feature-card__description">{description}</p>
+        <p className="FeatureCard__description">{description}</p>
+
+        <span className="FeatureCard__link">
+          {linkText}
+          <span className="FeatureCard__arrow">→</span>
+        </span>
       </div>
 
-      <span className="feature-card__action">{actionLabel} →</span>
-    </Link>
+      {visual && <div className="FeatureCard__visual">{visual}</div>}
+    </a>
   );
 };
 
